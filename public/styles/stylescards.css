@@ -1,0 +1,17 @@
+.card
+{
+    background: transparent;
+    margin: auto 20px;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+footer
+{
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    color:#ffffff78;
+}

@@ -1,0 +1,75 @@
+body
+{
+    background-color: #24344c;
+    color:white;
+    overflow-x: hidden;
+}
+
+.links
+{
+    color:white;
+}
+
+#topnav  div
+{
+    color: #f1f1f1;
+}
+
+#topnav div ul li a
+{
+    color: white;
+}
+/* Navbar Ends */
+
+/* Main Content Starts */
+.admin,.images
+{
+    padding:30px;
+    background-color: #24344c;
+}
+.admin
+{
+    background-color: #24344c;
+    color:#272b6a;
+    font-weight: bold;
+}
+.admin p
+{
+    font-weight: normal;
+    color: black;
+}
+
+.row .col-md-2 img
+{
+    max-height: 200px;
+}
+.row .col-md-2 .info
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+.row .col-md-2 .info .dropdown i
+{
+    opacity: 0.6;
+}
+.row .col-md-2 .info .name
+{
+    font-weight: 500;
+}
+
+/* Media Query */
+
+@media all and (max-width:400px)
+{
+  .row
+  {
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+  #topnav #topfour
+  {
+      flex-direction: row;
+      justify-content: space-evenly;
+  }
+}
