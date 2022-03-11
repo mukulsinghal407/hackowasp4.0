@@ -14,6 +14,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 
+var item = {name:String,phone:String}
+
+const lost = new mongoose.Schema({
+    items: [item]
+});
+const found = new mongoose.Schema({
+    items: [item]
+});
 const user = new mongoose.Schema({
     name: {
         type: String,
@@ -26,7 +34,8 @@ const user = new mongoose.Schema({
 });
 
 const userStudent = mongoose.model("user",user);
-
+const lostItem = mongoose.model("lost",lost);
+const foundItem = mongoose.model("found",found);
 
 app.get("/",(req,res)=>
 {
@@ -57,6 +66,11 @@ app.post("/login",(req,res)=>{
     //         res.render("error");
     //     }
     // });
+});
+
+app.post("/rat/:user",(req,res)=>
+{
+    
 });
 
 app.listen(process.env.PORT||3000,(req,res)=>
