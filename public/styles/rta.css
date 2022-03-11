@@ -1,0 +1,36 @@
+body
+{
+    margin:calc(50%/6) calc(50%/4);
+    background-color: #171c26;
+    color:white;
+    overflow: hidden;
+}
+
+#topthree
+{
+    margin-bottom: 25px;
+}
+#topthree .active
+{
+    background-color: #ffc220;
+    color: white;
+    font-weight: bold;
+    border: solid 2px black;
+    box-shadow:0px 0px 4px 1px #ffc220 ;
+}
+#top0,#top1{
+    border-radius: 35px;
+    margin:5px;
+    padding:10px 30px;
+    background-color: white;
+    box-shadow:0px 0px 4px black ;
+}
+
+form{
+    margin-top: 20px;
+}
+
+.hide
+{
+    display: none;
+}
