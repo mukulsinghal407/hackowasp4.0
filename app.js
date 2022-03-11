@@ -52,7 +52,7 @@ app.post("/login",(req,res)=>{
     console.log(name);
     const password=req.body.password.toLowerCase();
     console.log(password);
-    res.render("dashboard",{info:name});
+    res.render("dashboard",{info:name.toUpperCase(),roll:"102003370"});
     // userStudent.findOne({name:name, roll:password},(err,result)=>{
     //     if(!err)
     //     {
