@@ -158,7 +158,7 @@ app.post("/getinfo/:phone",(req,res)=>{
                 if(!err)
                 {
                     if(result)
-                     res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,cards:final});
+                     res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,final:final});
                     else
                      res.render("message",{info:"The User doesn't Exists"});
                 }
