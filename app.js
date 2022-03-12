@@ -110,6 +110,7 @@ app.post("/rat/:user",(req,res)=>
         brand:req.body.brand,
         type: req.body.typeofitem
     }
+    console.log(item);
     foundItem.find({},(err,result)=>
     {
         if(!err)
