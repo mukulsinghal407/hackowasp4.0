@@ -155,19 +155,20 @@ app.post("/getinfo/:phone",(req,res)=>{
                 final.push(itemsWtId[a[i]]);
             }
             console.log(final);
-            userStudent.findOne({phone:req.params.phone},(err,result)=>{
-                if(!err)
-                {
-                    if(result)
-                     res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,final:final});
-                    else
-                     res.render("message",{info:"The User doesn't Exists"});
-                }
-                else
-                {
-                    res.render("error");
-                }
-            });
+            res.send(final);
+            // userStudent.findOne({phone:req.params.phone},(err,result)=>{
+            //     if(!err)
+            //     {
+            //         if(result)
+            //          res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,final:final});
+            //         else
+            //          res.render("message",{info:"The User doesn't Exists"});
+            //     }
+            //     else
+            //     {
+            //         res.render("error");
+            //     }
+            // });
         }
         else
          res.send("Error 503");

@@ -257,7 +257,6 @@ h1{
     <div class="alldivheader">
       <div class="wrapper">
         <div class="cols">
-          <%for(let i=0;i<2;++i){%>
           <div class="col" ontouchstart="this.classList.toggle('hover');">
             <div class="container_card">
               <div class="front" style="background-image: url(https://unsplash.it/500/500/)">
@@ -281,12 +280,33 @@ h1{
               </div>
             </div>
           </div>
-          <%}%>
+          <div class="col" ontouchstart="this.classList.toggle('hover');">
+            <div class="container_card">
+              <div class="front" style="background-image: url(https://unsplash.it/500/500/)">
+                <div class="inner">
+                  <p><%=final[i].name%></p>
+                  <span><%=final[i].phone%></span>
+                </div>
+              </div>
+              <div class="back">
+                <div class="inner">
+                  <p>
+                    <%=final[i].location%>
+                    <br>
+                    <%=final[i].brand%>
+                    <br>
+                    <%=final[i].color%>
+                    <br>
+                    <%=final[i].type%>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="wrapper"> 
         <div class="cols">
-          <%for(let i=2;i<4;++i){%>
             <div class="col" ontouchstart="this.classList.toggle('hover');">
               <div class="container_card">
                 <div class="front" style="background-image: url(https://unsplash.it/500/500/)">
@@ -310,7 +330,29 @@ h1{
                 </div>
               </div>
             </div>
-            <%}%>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+              <div class="container_card">
+                <div class="front" style="background-image: url(https://unsplash.it/500/500/)">
+                  <div class="inner">
+                    <p><%=final[i].name%></p>
+                    <span><%=final[i].phone%></span>
+                  </div>
+                </div>
+                <div class="back">
+                  <div class="inner">
+                    <p>
+                      <%=final[i].location%>
+                      <br>
+                      <%=final[i].brand%>
+                      <br>
+                      <%=final[i].color%>
+                      <br>
+                      <%=final[i].type%>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div> 
     </div>
