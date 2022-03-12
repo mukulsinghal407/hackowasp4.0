@@ -88,7 +88,12 @@ app.post("/login",(req,res)=>{
         if(!err)
         {
             if(result)
-             res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,final:[]});
+             res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,final:[{name:"element.name",
+                phone:"element.phone",
+                location:"element.location",
+                brand:"element.brand",
+                color:"element.color",
+                type:"element.type"}]});
             else
              res.render("message",{info:"The User doesn't Exists"});
         }
