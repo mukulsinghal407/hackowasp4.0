@@ -59,22 +59,22 @@
         <form action="/rat/<%=name%>" method="post" id="first">
             <div class="form-group">
               <label for="exampleInputEmail1">Item</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="item" name="item" required> 
             </div>
             <br>
             <div class="form-group">
               <label for="exampleInputPassword1">Last seen</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" name="location" required>
             </div>
             <br>
             <div class="form-group">
                 <label for="exampleInputPassword1">Colour</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="location" name="colour" required>
             </div>
             <br>
             <div class="form-group">
                 <label for="exampleInputPassword1">Brand</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="brand" name="brand">
             </div>
             <br>
             <input type="hidden" name="typeofitem" value="lost">

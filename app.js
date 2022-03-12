@@ -19,12 +19,14 @@ var item ={
     phone:String,
     location: String,
     color:String,
-    brand:String
+    brand:String,
+    type: {
+        type: String,
+        enum : ['lost','found'],
+        default: 'lost'
+    }
 }
 
-const lost = new mongoose.Schema({
-    items: [item]
-});
 const found = new mongoose.Schema({
     items: [item]
 });
@@ -44,8 +46,7 @@ const user = new mongoose.Schema({
 });
 
 const userStudent = mongoose.model("user",user);
-const lostItem = mongoose.model("lost",lost);
-const foundItem = mongoose.model("found",found);
+const foundItem = mongoose.model("all",found);
 
 app.get("/",(req,res)=>
 {
@@ -57,50 +58,19 @@ app.get("/RAT/:user",(req,res)=>
     res.render("newitem",{name:req.params.user});
 });
 
-app.get("/veer/lostitems",(req,res)=>{
-    lostItem.find({},(err,result)=>{
-        if(!err)
-        {
-            var itemsWtId = [];
-            result[0].items.forEach(element => {
-                console.log(element);
-                var singleItem = {
-                    name: String,
-                    location: String,
-                    brand: String,
-                    color: String,
-                }
-                singleItem.name = element.name;
-                singleItem.location = element.location;
-                singleItem.brand = element.brand;
-                singleItem.color = element.color;
-                itemsWtId.push(singleItem);
-            });
-            res.send(itemsWtId);
-        }
-        else
-         res.send("Error 503");
-    });
-});
-
-app.get("/veer/founditems",(req,res)=>{
+app.get("/veer/allitems",(req,res)=>{
     foundItem.find({},(err,result)=>{
         if(!err)
         {
             var itemsWtId = [];
             result[0].items.forEach(element => {
-                console.log(element);
-                var singleItem = {
-                    name: String,
-                    location: String,
-                    brand: String,
-                    color: String,
-                }
-                singleItem.name = element.name;
-                singleItem.location = element.location;
-                singleItem.brand = element.brand;
-                singleItem.color = element.color;
-                itemsWtId.push(singleItem);
+                itemsWtId.push({
+                    name:element.name,
+                    location:element.location,
+                    brand:element.brand,
+                    color:element.color,
+                    type:element.type
+                });
             });
             res.send(itemsWtId);
         }
@@ -132,7 +102,22 @@ app.post("/login",(req,res)=>{
 
 app.post("/rat/:user",(req,res)=>
 {
-    
+    const item={
+        name:req.body.item,
+        phone:req.params.user,
+        location: req.body.location,
+        color:req.body.colour,
+        brand:req.body.brand,
+        type: req.body.typeofitem
+    }
+    foundItem.find({},(err,result)=>
+    {
+        if(!err)
+        {
+            result[0].items.push(item);
+            result.save();
+        }
+    });
 });
 
 app.listen(process.env.PORT||3000,(req,res)=>
