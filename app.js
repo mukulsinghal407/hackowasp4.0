@@ -67,14 +67,7 @@ app.get("/found",(req,res)=>{
     foundItem.find({},(err,result)=>{
         if(!err)
         {
-            var lost=[];
-            result[0].items.forEach(element => {
-                if(element.type==='found')
-                {
-                    lost.push(element);
-                }
-            res.render("found",{type:'found',final:lost});
-            });
+            res.render("found",{type:'found',final:result[0].items});
         }
     })
 });
