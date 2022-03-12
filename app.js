@@ -157,7 +157,7 @@ app.post("/getinfo/:phone",(req,res)=>{
             console.log(final);
             const cards = [];
             final.forEach(element => {    
-                if (element !== null) {   
+                if (element) {   
                     cards.push(element);  
                 } 
             });
