@@ -135,6 +135,7 @@ app.post("/rat/:user",(req,res)=>
 
 app.post("/getinfo/:phone",(req,res)=>{
     var a = req.body.info;
+    console.log(a);
     foundItem.find({},(err,result)=>{
         if(!err)
         {
