@@ -84,12 +84,11 @@ app.post("/login",(req,res)=>{
     console.log(name);
     const password=req.body.password.toLowerCase();
     console.log(password);
-    // res.render("dashboard",{info:name.toUpperCase(),roll:password});
     userStudent.findOne({name:name, password:password},(err,result)=>{
         if(!err)
         {
             if(result)
-             res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone});
+             res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,final:[]});
             else
              res.render("message",{info:"The User doesn't Exists"});
         }
@@ -123,7 +122,7 @@ app.post("/rat/:user",(req,res)=>
         if(!err)
         {
             if(result)
-             res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone});
+             res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,final:[]});
             else
              res.render("message",{info:"The User doesn't Exists"});
         }
@@ -134,7 +133,7 @@ app.post("/rat/:user",(req,res)=>
     });
 });
 
-app.post("/getinfo",(req,res)=>{
+app.post("/getinfo/:phone",(req,res)=>{
     var a = req.body.info;
     foundItem.find({},(err,result)=>{
         if(!err)
@@ -143,6 +142,7 @@ app.post("/getinfo",(req,res)=>{
             result[0].items.forEach(element => {
                 itemsWtId.push({
                     name:element.name,
+                    phone:element.phone,
                     location:element.location,
                     brand:element.brand,
                     color:element.color,
@@ -154,8 +154,19 @@ app.post("/getinfo",(req,res)=>{
             {
                 final.push(itemsWtId[a[i]]);
             }
-            console.log(final);
-            res.send(final);
+            userStudent.findOne({phone:req.params.phone},(err,result)=>{
+                if(!err)
+                {
+                    if(result)
+                     res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,cards:final});
+                    else
+                     res.render("message",{info:"The User doesn't Exists"});
+                }
+                else
+                {
+                    res.render("error");
+                }
+            });
         }
         else
          res.send("Error 503");
