@@ -155,6 +155,7 @@ app.post("/getinfo/:user",(req,res)=>{
                 final.push(itemsWtId[a[i]]);
             }
             console.log(final);
+            res.send(final);
         }
         else
          res.send("Error 503");
