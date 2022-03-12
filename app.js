@@ -119,6 +119,19 @@ app.post("/rat/:user",(req,res)=>
             result[0].save();
         }
     });
+    userStudent.findOne({phone:req.params.user},(err,result)=>{
+        if(!err)
+        {
+            if(result)
+             res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone});
+            else
+             res.render("message",{info:"The User doesn't Exists"});
+        }
+        else
+        {
+            res.render("error");
+        }
+    });
 });
 
 app.listen(process.env.PORT||3000,(req,res)=>
