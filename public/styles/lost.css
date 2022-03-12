@@ -1,0 +1,20 @@
+#tracks .wrapper
+{
+    border-radius: 15px;
+    height: 300px;
+    border: solid 3px white;
+    width:20%;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 90px;
+}
+
+#tracks .wrapper:hover
+{
+    box-shadow: #fec222 -2px 5px 10px 5px;
+}
+
+#tracks .heading
+{
+    margin-bottom: 20px;
+}
