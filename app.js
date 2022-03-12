@@ -162,19 +162,19 @@ app.post("/getinfo/:phone",(req,res)=>{
                 } 
             });
             res.send(cards);
-            // userStudent.findOne({phone:req.params.phone},(err,result)=>{
-            //     if(!err)
-            //     {
-            //         if(result)
-            //          res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,final:final});
-            //         else
-            //          res.render("message",{info:"The User doesn't Exists"});
-            //     }
-            //     else
-            //     {
-            //         res.render("error");
-            //     }
-            // });
+            userStudent.findOne({phone:req.params.phone},(err,result)=>{
+                if(!err)
+                {
+                    if(result)
+                     res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,final:cards});
+                    else
+                     res.render("message",{info:"The User doesn't Exists"});
+                }
+                else
+                {
+                    res.render("error");
+                }
+            });
         }
         else
          res.send("Error 503");
