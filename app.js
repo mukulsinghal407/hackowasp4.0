@@ -161,7 +161,7 @@ app.post("/getinfo/:phone",(req,res)=>{
                     cards.push(element);  
                 } 
             });
-            res.send(cards);
+            // res.send(cards);
             userStudent.findOne({phone:req.params.phone},(err,result)=>{
                 if(!err)
                 {
