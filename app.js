@@ -86,8 +86,26 @@ app.get("/veer/lostitems",(req,res)=>{
 app.get("/veer/founditems",(req,res)=>{
     foundItem.find({},(err,result)=>{
         if(!err)
-        res.send(result);
-        res.send("Error 503");
+        {
+            var itemsWtId = [];
+            result[0].items.forEach(element => {
+                console.log(element);
+                var singleItem = {
+                    name: String,
+                    location: String,
+                    brand: String,
+                    color: String,
+                }
+                singleItem.name = element.name;
+                singleItem.location = element.location;
+                singleItem.brand = element.brand;
+                singleItem.color = element.color;
+                itemsWtId.push(singleItem);
+            });
+            res.send(itemsWtId);
+        }
+        else
+         res.send("Error 503");
     });
 });
 
