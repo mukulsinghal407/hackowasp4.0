@@ -134,7 +134,7 @@ app.post("/rat/:user",(req,res)=>
     });
 });
 
-app.post("/getinfo/:user",(req,res)=>{
+app.post("/getinfo",(req,res)=>{
     var a = req.body.info;
     foundItem.find({},(err,result)=>{
         if(!err)
