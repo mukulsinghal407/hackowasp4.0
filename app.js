@@ -53,6 +53,38 @@ app.get("/",(req,res)=>
     res.render("login");
 });
 
+app.get("/lost",(req,res)=>{
+    foundItem.find({},(err,result)=>{
+        if(!err)
+        {
+            var lost=[];
+            result[0].items.forEach(element => {
+                if(element.type==='lost')
+                {
+                    lost.push(element);
+                }
+            res.render("found",{type:'lost',final:lost});
+            });
+        }
+    })
+});
+
+app.get("/found",(req,res)=>{
+    foundItem.find({},(err,result)=>{
+        if(!err)
+        {
+            var lost=[];
+            result[0].items.forEach(element => {
+                if(element.type==='found')
+                {
+                    lost.push(element);
+                }
+            res.render("found",{type:'found',final:lost});
+            });
+        }
+    })
+});
+
 app.get("/RAT/:user",(req,res)=>
 {
     res.render("newitem",{name:req.params.user});
