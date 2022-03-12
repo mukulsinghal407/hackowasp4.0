@@ -57,14 +57,16 @@ app.get("/lost",(req,res)=>{
     foundItem.find({},(err,result)=>{
         if(!err)
         {
-            var lost=[];
-            result[0].items.forEach(element => {
-                if(element.type==='lost')
-                {
-                    lost.push(element);
-                }
-            res.render("found",{type:'lost',final:lost});
-            });
+            console.log(result[0].items);
+            res.send("Error");
+            // var lost=[];
+            // result[0].items.forEach(element => {
+            //     if(element.type==='lost')
+            //     {
+            //         lost.push(element);
+            //     }
+            // res.render("found",{type:'lost',final:lost});
+            // });
         }
     })
 });
