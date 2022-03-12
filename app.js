@@ -134,6 +134,33 @@ app.post("/rat/:user",(req,res)=>
     });
 });
 
+app.post("/getinfo/:user",(req,res)=>{
+    var a = req.body.info;
+    foundItem.find({},(err,result)=>{
+        if(!err)
+        {
+            var itemsWtId = [];
+            result[0].items.forEach(element => {
+                itemsWtId.push({
+                    name:element.name,
+                    location:element.location,
+                    brand:element.brand,
+                    color:element.color,
+                    type:element.type
+                });
+            });
+            var final=[]
+            for(let i=0;i<a.length;++i)
+            {
+                final.push(itemsWtId[a[i]]);
+            }
+            console.log(final);
+        }
+        else
+         res.send("Error 503");
+    });
+});
+
 app.listen(process.env.PORT||3000,(req,res)=>
 {
     console.log("Server started at 3000");
