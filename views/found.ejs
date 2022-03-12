@@ -34,9 +34,9 @@
 </head>
 <body>
     <div class="row">
-        <% for(let i=0;i < final.length;++i){ %>
-        <div class="wrapper col-md-3"><div style="font-size: 15px;"><%=final[i].name></div></div>
-        <%}%>
+        <% final.forEach(element=>({%>
+        <div class="wrapper col-md-3"><div style="font-size: 15px;"><%=element.name></div></div>
+        <%}))%>
     </div>
 </body>
 </html>
