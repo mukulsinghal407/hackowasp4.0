@@ -14,7 +14,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 
-var item = {name:String,phone:String}
+var item ={
+    name:String,
+    phone:String,
+    location: String,
+    color:String,
+    brand:String
+}
 
 const lost = new mongoose.Schema({
     items: [item]
@@ -30,6 +36,10 @@ const user = new mongoose.Schema({
     phone: {
         type:String,
         required: true
+    },
+    password:{
+        type:String,
+        required:true
     }
 });
 
@@ -47,25 +57,41 @@ app.get("/RAT/:user",(req,res)=>
     res.render("newitem",{name:req.params.user});
 });
 
+app.get("/veer/lostitems",(req,res)=>{
+    lostItem.find({},(err,result)=>{
+        if(!err)
+        res.send(result);
+        res.send("Error 503");
+    });
+});
+
+app.get("/veer/founditems",(req,res)=>{
+    lostItem.find({},(err,result)=>{
+        if(!err)
+        res.send(result);
+        res.send("Error 503");
+    });
+});
+
 app.post("/login",(req,res)=>{
     const name=req.body.name.toLowerCase();
     console.log(name);
     const password=req.body.password.toLowerCase();
     console.log(password);
-    res.render("dashboard",{info:name.toUpperCase(),roll:"102003370"});
-    // userStudent.findOne({name:name, roll:password},(err,result)=>{
-    //     if(!err)
-    //     {
-    //         if(result)
-    //          res.render("dashboard",{info:result});
-    //         else
-    //          res.render("message",{info:"The User doesn't Exists"});
-    //     }
-    //     else
-    //     {
-    //         res.render("error");
-    //     }
-    // });
+    // res.render("dashboard",{info:name.toUpperCase(),roll:password});
+    userStudent.findOne({name:name, password:password},(err,result)=>{
+        if(!err)
+        {
+            if(result)
+             res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone});
+            else
+             res.render("message",{info:"The User doesn't Exists"});
+        }
+        else
+        {
+            res.render("error");
+        }
+    });
 });
 
 app.post("/rat/:user",(req,res)=>

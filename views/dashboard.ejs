@@ -12,13 +12,13 @@
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/13fe3ce91d.js" crossorigin="anonymous"></script>
 <style>
-  main
+  .top
   {
     display: flex;
     justify-content: space-between;
     margin: 50px;
   }
-  main img
+  .top img
   {
     height: 150px;
     border-radius: 100%;
@@ -55,12 +55,12 @@
             </div>
           </nav>
     </header>
-    <main>
+    <section class="top">
       <div>
         <h3>Welcome, <%=info%></h3>
         <p>Roll No : <%=roll%></p>
       </div>
-      <img src="https://avatars.dicebear.com/api/avataaars/102003369.svg?eyes[]=happy&skin[]=yellow&mouth[]=smile&eyebrow[]=raisedExcited" alt="emoticon" srcset="">
+      <img src="https://avatars.dicebear.com/api/avataaars/<%=roll%>.svg?eyes[]=happy&skin[]=yellow&mouth[]=smile&eyebrow[]=raisedExcited" alt="emoticon" srcset="">
     </main>
 </body>
 </html>
