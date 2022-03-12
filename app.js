@@ -116,7 +116,7 @@ app.post("/rat/:user",(req,res)=>
         if(!err)
         {
             result[0].items.push(item);
-            result.save();
+            result[0].save();
         }
     });
 });
