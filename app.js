@@ -155,7 +155,13 @@ app.post("/getinfo/:phone",(req,res)=>{
                 final.push(itemsWtId[a[i]]);
             }
             console.log(final);
-            res.send(final);
+            const cards = [];
+            final.forEach(element => {    
+                if (element !== null) {   
+                    cards.push(element);  
+                } 
+            });
+            res.send(cards);
             // userStudent.findOne({phone:req.params.phone},(err,result)=>{
             //     if(!err)
             //     {
