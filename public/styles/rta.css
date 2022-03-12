@@ -1,9 +1,10 @@
-body
+#topthree
 {
     margin:calc(50%/6) calc(50%/4);
     background-color: #171c26;
     color:white;
     overflow: hidden;
+    margin-top:20px;
 }
 
 #topthree
