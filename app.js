@@ -154,6 +154,7 @@ app.post("/getinfo/:phone",(req,res)=>{
             {
                 final.push(itemsWtId[a[i]]);
             }
+            console.log(final);
             userStudent.findOne({phone:req.params.phone},(err,result)=>{
                 if(!err)
                 {
