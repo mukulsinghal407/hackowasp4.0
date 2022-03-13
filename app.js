@@ -57,8 +57,14 @@ app.get("/lost",(req,res)=>{
     foundItem.find({},(err,result)=>{
         if(!err)
         {
-            console.log(result[0].items);
-            res.render("found",{type:'lost',final:result[0].items});
+            var lost=[];
+            result[0].items.forEach(element => {
+                if(element.type=='lost')
+                {
+                    lost.push(element);
+                }
+            });
+            res.render("found",{type:'LOST',final:lost});
         }
     })
 });
@@ -67,7 +73,14 @@ app.get("/found",(req,res)=>{
     foundItem.find({},(err,result)=>{
         if(!err)
         {
-            res.render("found",{type:'found',final:result[0].items});
+            var lost=[];
+            result[0].items.forEach(element => {
+                if(element.type =='found')
+                {
+                    lost.push(element);
+                }
+            });
+            res.render("found",{type:'FOUND',final:result[0].items});
         }
     })
 });
