@@ -116,19 +116,19 @@ app.post("/login",(req,res)=>{
     console.log(name);
     const password=req.body.password.toLowerCase();
     console.log(password);
-    userStudent.findOne({name:name, password:password},(err,result)=>{
-        if(!err)
-        {
-            if(result)
+    // userStudent.findOne({name:name, password:password},(err,result)=>{
+    //     if(!err)
+    //     {
+    //         if(result)
              res.render("dashboard",{info:result.name.toUpperCase(),roll:result.phone,final:[]});
-            else
-             res.render("message",{info:"The User doesn't Exists"});
-        }
-        else
-        {
-            res.render("error");
-        }
-    });
+    //         else
+    //          res.render("message",{info:"The User doesn't Exists"});
+    //     }
+    //     else
+    //     {
+    //         res.render("error");
+    //     }
+    // });
 });
 
 app.post("/rat/:user",(req,res)=>
