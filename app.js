@@ -6,7 +6,7 @@ const moongoose = require("mongoose");
 const { default: mongoose } = require("mongoose");
 const req = require("express/lib/request");
 
-moongoose.connect("mongodb+srv://admin-mukul:Test123@cluster0.tj2jy.mongodb.net/hackowasp",{ useNewUrlParser: true, useUnifiedTopology: true });
+moongoose.connect("mongodb+srv://JPMC:JPMCTEAMT20@cluster0.tj2jy.mongodb.net/jpmc",{ useNewUrlParser: true, useUnifiedTopology: true });
 
 //Setting things up
 const app = express();
